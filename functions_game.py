@@ -19,7 +19,7 @@ def intro():
 
 def around_the_lake():
   print("You hear what sounds like an animal rustling in the woods up ahead, but you aren't sure what animal it is. Do you (a) run towards the sound, or (b) stay where you are and call Butter's name?")
-  secondAnswer = input("Enter a or b: ")
+  secondAnswer = choose(['a','b'])
   if secondAnswer == "a" :
     print("It isn't a cat, it's a bear! It is startled by your sudden appearance and it attacks you. Ouch. The end.")
     the_end()
@@ -28,17 +28,37 @@ def around_the_lake():
 
 def call_butters_name():
   print("You call Butter's name but nothing happens, except the rustling sounds cease. Everything is quiet now. Do you (a) run in the direction the sound used to be coming from, or (b) do you look elsewhere in the woods?")
-  thirdAnswer = input("Enter a or b:")
+  thirdAnswer = choose(['a','b'])
   if thirdAnswer == "a" :
-    print("You find berries laying on the ground and decied to eat them. At first the berries tast good but they really are poisnous to humans! The end.")
+    print("You find berries laying on the ground and decied to eat them. At first the berries taste good but they really are poisonous to humans! The end.")
     the_end()
   else :
-    print("You see a colorful tree and walk over to it. You realize some people are having a party. As you walk over to everybody you hear a small meowing sound coming from behind the tree. You look were the meowing sound came from and Butter jumped out from behind the tree and into Prizma's arms. Happy ending.")
+    print("You see a colorful tree and walk over to it. You realize some people are having a party. As you walk over to everybody you hear a small meowing sound coming from behind the tree. You look where the meowing sound came from and Butter jumped out from behind the tree and into Prizma's arms. Do you (a) try to find a way home or (b) stay at the party?")
+    butterAnswer = choose(['a','b'])
+    if butterAnswer == "a":
+      left_and_right()
+    elif butterAnswer == "b":
+      the_party()
+
+def the_party():
+  print("You walk over to the entrance but someone asks for the letter you got inviting you there. When you say that you were not invited they pull a lever and you fall down a ditch into the center of the Earth. The end.")
+  the_end()
+    
+
+def left_and_right(): 
+  print("You walk forward a little bit and find a trail that goes left and a trail that goes right. Do you (a) go left or (b) go right?")
+  trailAnswer = choose(['a','b'])
+  if trailAnswer == "a":
+    print("You fall off of a cliff. The end.")
+    the_end()
+  elif trailAnswer == "b":
+    print("A piano falls on you. The end.")
     the_end()
 
+  
 def muddy_patch():
   print("As you start walking towards the muddy patch, it begins to rain very hard. You run to find shelter, and you find a beautiful tent. You hear a meowing sound inside the tent. Do you (a) look inside the tent, or (b) stay where you are and call Butter's name?")
-  fourthAnswer = input("Enter a or b:")
+  fourthAnswer = choose(['a','b'])
   if fourthAnswer == "a":
     inside_the_tent()
   elif fourthAnswer == "b":
@@ -46,7 +66,7 @@ def muddy_patch():
 
 def inside_the_tent():
   print("The meowing you heard continued coming from behind a red pillow and you go to check it out. You find a cat but it is not Butter. Do you (a) pet the cat or (b) look under the bed that is in the tent or (c) leave the tent and keep looking outside?")
-  tentAnswer = input("Enter a, b, or c.")
+  tentAnswer = choose(['a','b','c'])
   if tentAnswer == "a":
     print("The cat purrs and falls asleep on a button. When the cat pushed down on the button the door to the tent closes. You get locked inside. The end.")
     the_end()
