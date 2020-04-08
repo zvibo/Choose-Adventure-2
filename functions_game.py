@@ -1,3 +1,8 @@
+# variables for the game
+
+has_invite_letter = False
+
+
 def choose(options):
   print('CHOOSE one of:', options)
   answer = input("> ")
@@ -41,9 +46,30 @@ def call_butters_name():
       the_party()
 
 def the_party():
-  print("You walk over to the entrance but someone asks for the letter you got inviting you there. When you say that you were not invited they pull a lever and you fall down a ditch into the center of the Earth. The end.")
-  the_end()
-    
+  global has_invite_letter
+  print("You walk over to the entrance but someone asks for the letter you got inviting you there.")
+  # check - do you have an invite?
+  if has_invite_letter:
+    inside_the_party()
+  else:
+    print("When you say that you were not invited they pull a lever and you fall down a ditch. You walk forward and jump onto a trampoline that bounces you up. When you are back out of the ditch you look around to find your self in a new forest. As you are walking around you find an invitation to the party. Do you (a) pick up the letter or (b) leave it and keep walking?")
+    inviteAnswer = choose(['a','b'])
+    if inviteAnswer == "a":
+      has_invite_letter = True
+      # make a change ( set a variable )
+      the_party()
+    elif inviteAnswer == "b":
+      left_and_right()
+
+def inside_the_party():
+  print("You pull out the invite you found and hand it to them. The man quickly reads the letter and then says welcome. He opens the gate and you walk in. Do you (a) go over to the snack table or (b) go over to the dance floor?")
+  partyTimeAnswer = choose(['a','b'])
+  if partyTimeAnswer == "a":
+    print("You eat a chocolate cake not knowing that it has peanut butter in it which you are allergic to! The end.")
+    the_end()
+  elif partyTimeAnswer == "b":
+    print("You dance until the song ends and than everyone gathers around the big wooden table. You go over with everyone but one person stops you and asks you your name. You answer Prizma forgetting that you are supposed to be pretending to be someone else. The person pulls out the list of people they invited. I did not invite someone named Prizma they said. Why are you here they asked. Do you (a) say I wanted to meet people or do you (b) say I am the cousin of someone who was invited?")
+
 
 def left_and_right(): 
   print("You walk forward a little bit and find a trail that goes left and a trail that goes right. Do you (a) go left or (b) go right?")
@@ -52,7 +78,7 @@ def left_and_right():
     print("You fall off of a cliff. The end.")
     the_end()
   elif trailAnswer == "b":
-    print("A piano falls on you. The end.")
+    print("A huge fox runs over you. The end.")
     the_end()
 
   
