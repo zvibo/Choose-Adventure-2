@@ -4,15 +4,15 @@ has_invite_letter = False
 
 
 def choose(options):
-  print('CHOOSE one of:', options)
-  answer = input("> ")
+  print('\033[1;36;40mCHOOSE one of:', options)
+  answer = input("> \033[1;35;42m")
   while answer not in options:
     print('you must pick one of:', options)
     answer = input("> ")
   return answer
 
 def intro():
-  print("One bright and sunny day a young adult named Prizma was looking for her cat Butter. Prizma entered a small forest and found a lake. Prizma decided to (a)look for Butter in the lake, or (b) go around the lake and continue looking for Butter in the forest, or (c) turn around and look for Butter in a muddy patch:")
+  print("\033[1;35;42m One bright and sunny day a young adult named Prizma was looking for her cat Butter. Prizma entered a small forest and found a lake. Prizma decided to (a)look for Butter in the lake, or (b) go around the lake and continue looking for Butter in the forest, or (c) turn around and look for Butter in a muddy patch:")
   firstAnswer = choose(['a','b','c'])
   if firstAnswer == "a" :
     print("Cats don't like to swim, silly! The end.")
@@ -69,19 +69,46 @@ def inside_the_party():
     the_end()
   elif partyTimeAnswer == "b":
     print("You dance until the song ends and than everyone gathers around the big wooden table. You go over with everyone but one person stops you and asks you your name. You answer Prizma forgetting that you are supposed to be pretending to be someone else. The person pulls out the list of people they invited. I did not invite someone named Prizma they said. Why are you here they asked. Do you (a) say I wanted to meet people or do you (b) say I am the cousin of someone who was invited?")
-
+    
+    truth = choose(['a','b'])
+    if truth == "a":
+      print("The person says well I guess it's ok. By the way I love your hair style. Happy ending.")
+      the_end()
+    else :
+      print("A cousin? the person asks confused. Whos your cousin? You don't know the names of everybody who was invited so you make up a name. Josh. you respond quickly. I did not invite someone named Josh the person says. He leads you over to a snack table and hands you a cockie to eat. The cookie has almonds in it and your alergic to almonds. The end.")
+      the_end()
+def cliff_fall():
+  print("You fall off of a cliff. The end.")
+  the_end()
 
 def left_and_right(): 
   print("You walk forward a little bit and find a trail that goes left and a trail that goes right. Do you (a) go left or (b) go right?")
   trailAnswer = choose(['a','b'])
   if trailAnswer == "a":
-    print("You fall off of a cliff. The end.")
-    the_end()
+    cliff_fall() 
   elif trailAnswer == "b":
-    print("A huge fox runs over you. The end.")
+    fox_button()
+
+
+def fox_button():
+  print("You meet a giant fox. The fox is startled by you and runs away. But when the fox runs away it drops a small blue button. Do you (a) press the button or (b) or turn around and walk away.")
+  foxAnswer = choose(['a','b'])
+  if foxAnswer == "a":
+    cave_enter()
+  elif foxAnswer == "b":
+    left_and_right()
+
+def cave_enter():
+  print("A rock wall on the trail lifts up and you see a cave inside with green glowing things inside. Do you (a) go into the cave or (b) call into the cave is anybody here?")
+  walkAnswer = choose(['a','b'])
+  if walkAnswer == "a":
+    cave_enter()
+  elif walkAnswer == "b":
+    print("You startle some bats which come flying out of the cave. You backup not looking where you are going and you end up escaping the bats but falling off of a cliff. The end.")
     the_end()
 
-  
+
+
 def muddy_patch():
   print("As you start walking towards the muddy patch, it begins to rain very hard. You run to find shelter, and you find a beautiful tent. You hear a meowing sound inside the tent. Do you (a) look inside the tent, or (b) stay where you are and call Butter's name?")
   fourthAnswer = choose(['a','b'])
@@ -108,3 +135,6 @@ def the_end():
   endAnswer = input("Enter y to play again.")
   if endAnswer == "y":
     intro()
+  else:
+    print("If you didn't find Butter I hope you do. Oh and also if you did find Butter don't loose her again. Now bye bye.")
+
