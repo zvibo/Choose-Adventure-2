@@ -68,15 +68,18 @@ def inside_the_party():
     print("You eat a chocolate cake not knowing that it has peanut butter in it which you are allergic to! The end.")
     the_end()
   elif partyTimeAnswer == "b":
-    print("You dance until the song ends and than everyone gathers around the big wooden table. You go over with everyone but one person stops you and asks you your name. You answer Prizma forgetting that you are supposed to be pretending to be someone else. The person pulls out the list of people they invited. I did not invite someone named Prizma they said. Why are you here they asked. Do you (a) say I wanted to meet people or do you (b) say I am the cousin of someone who was invited?")
-    
-    truth = choose(['a','b'])
-    if truth == "a":
-      print("The person says well I guess it's ok. By the way I love your hair style. Happy ending.")
-      the_end()
-    else :
-      print("A cousin? the person asks confused. Whos your cousin? You don't know the names of everybody who was invited so you make up a name. Josh. you respond quickly. I did not invite someone named Josh the person says. He leads you over to a snack table and hands you a cockie to eat. The cookie has almonds in it and your alergic to almonds. The end.")
-      the_end()
+    dance_floor()
+
+def dance_floor():
+  print("You dance until the song ends and than everyone gathers around the big wooden table. You go over with everyone but one person stops you and asks you your name. You answer Prizma forgetting that you are supposed to be pretending to be someone else. The person pulls out the list of people they invited. I did not invite someone named Prizma they said. Why are you here they asked. Do you (a) say I wanted to meet people or do you (b) say I am the cousin of someone who was invited?")
+  truth = choose(['a','b'])
+  if truth == "a":
+    print("The person says well I guess it's ok. By the way I love your hair style. Happy ending.")
+    the_end()
+  else :
+    print("A cousin? the person asks confused. Whos your cousin? You don't know the names of everybody who was invited so you make up a name. Josh. you respond quickly. I did not invite someone named Josh the person says. He leads you over to a snack table and hands you a cockie to eat. The cookie has almonds in it and your alergic to almonds. The end.")
+    the_end()
+
 def cliff_fall():
   print("You fall off of a cliff. The end.")
   the_end()
@@ -124,13 +127,23 @@ def inside_the_tent():
     print("The cat purrs and falls asleep on a button. When the cat pushed down on the button the door to the tent closes. You get locked inside. The end.")
     the_end()
   elif tentAnswer == "b":
-    print("You find a hidden staircase that leads underground. You walk down the steps and a huge fan pushes you back upstairs. The trap door shuts and pushes so air at you that pushes you outside the tent and into a muddy patch.")
+    print("You find a hidden staircase that leads underground. You walk down the steps and a huge fan pushes you back upstairs. The trap door shuts and pushes air at you that pushes you outside the tent and into a muddy patch.")
     muddy_patch()
   elif tentAnswer == "c":
     print("You spot a reindeer that is eating a fish from a stream. The reindeer hears you coming and stops eating to look at you. The reindeer looks at you like its trying to figure out if you want something. The reindeer kicks a nearby bush and then runs off. You stare at the bush it kicked confused and then Butter jumps out of the bush and into your arms with a scared face like a reindeer just kicked his bush when he was trying to steal its fish. The end.")
     the_end()
+    
+def troodon():
+  print("As you reach the top of the mountain you see a troodon with fifty wings talking to seventy beetles. Do you (a) immediately interrupt the troodon and the beetles and say hi I'm Prizma or (b) wait for them to finish talking and then hi I'm Prizma what are you talking about?")
+  troodonAnswer = choose(['a','b'])
+  if troodonAnswer == "a":
+    print("The troodon gets angry and tackles. The end.")
+    the_end()
+  elif troodonAnswer == "b":
+    print("Oh hi the troodon says we are talking about what to have for lunch. Oh what are you having for lunch you ask them. 'You!' the troodon shouts and then the troodon laughs for forty-five minutes. I was joking he says and than continues to laugh. After sixty-nine more minutes of troodon laughing the leader beetle finally says stop laughing or we will have to give you paper cuts as medicine. Fine the troodon says and stops laughing. But three seconds later the troodon keeps laughing for seventy-eight more hours. One week from then the troodon stops laughing but has two paper cuts and forty-seven beetle bites. You ask the troodon why do you hav so many beetle bites? The beetels bites are from when the beetles tried giving me paper cuts and I wouldn't let them so we had a beetle bite fight. You die of old age. The end. (The troodon laughs the whole time.)")
 
-def the_end():
+
+def the_end(): 
   print("The end.  Thank you for playing!")
   endAnswer = input("Enter y to play again.")
   if endAnswer == "y":
